@@ -3,8 +3,8 @@
 ---@field chats_dir string
 
 ---@class texel.Separators
----@field start string[]
----@field end string[]
+---@field first string[]
+---@field last string[]
 
 ---@class texel.ChatOptions
 ---@field separators texel.Separators
