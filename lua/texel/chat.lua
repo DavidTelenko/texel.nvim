@@ -58,16 +58,6 @@ local function make_command(prompt, args)
   return command
 end
 
-local function notify(msg, level)
-  if vim.in_fast_event() then
-    vim.schedule(function()
-      vim.notify(msg, level)
-    end)
-  else
-    vim.notify(msg, level)
-  end
-end
-
 ---Exposes api functionality of plugin, provide your own string in the prompt
 ---parameter and get the output pasted into current buffer
 ---@param prompt string
@@ -80,7 +70,7 @@ M.ask.plain = function(prompt, opts, args)
   vim.api.nvim_buf_set_lines(0, -1, -1, false, local_opts.separators.first)
 
   if local_opts.notify then
-    notify 'Generating...'
+    helpers.notify 'Generating...'
   end
 
   vim.system(
@@ -90,7 +80,7 @@ M.ask.plain = function(prompt, opts, args)
     },
     vim.schedule_wrap(function(out)
       if out.code ~= 0 then
-        notify 'tgpt failed to process prompt'
+        helpers.notify 'tgpt failed to process prompt'
       end
 
       if out.stdout then
@@ -99,9 +89,9 @@ M.ask.plain = function(prompt, opts, args)
         vim.api.nvim_buf_set_lines(0, -1, -1, false, local_opts.separators.last)
 
         if local_opts.notify then
-          notify 'Done'
+          helpers.notify 'Done'
           vim.defer_fn(function()
-            notify ''
+            helpers.notify ''
           end, 1000)
         end
       end
