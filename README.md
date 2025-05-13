@@ -4,7 +4,7 @@ Most simplistic way of interacting with LLM in neovim.
 
 # The idea
 
-This plugin is as simple wrapper around [tgpt](https://github.com/aandrew-me/tgpt) utility which gives us an ability to interact with LLM via simple command line unitlity.
+This plugin is a simple wrapper around [tgpt](https://github.com/aandrew-me/tgpt) CLI utility. In the most basic sence we achieve interaction with CLI application by using neovim's buffers, this gives us full power of neovim motions alongside full functionality of CLI application.
 
 # Setup (using lazy)
 
@@ -71,3 +71,8 @@ require('texel').setup {
 
 > [!NOTE]
 > If you're confused which type of a flag we're using check your lsp completion, or see [here](./lua/texel/types.lua)
+
+# Future improvements and goals
+
+- [ ] Implemenent functioanlity of a tgpt in lua natively.
+- [ ] Stream results line-wise or word-wise instead of the whole response.
