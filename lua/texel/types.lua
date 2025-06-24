@@ -8,7 +8,7 @@
 
 ---@class texel.ChatOptions
 ---@field separators texel.Separators
----@filed notify boolean
+---@field notify boolean
 
 ---@class texel.TgptOptions
 ---@field code? boolean
