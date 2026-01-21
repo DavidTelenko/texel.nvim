@@ -39,7 +39,7 @@ local make_args = function(args)
         end
         return '--' .. key
       end
-      return '--' .. key .. ' ' .. value
+      return '--' .. key .. '=' .. value
     end)
     :totable()
 end
@@ -57,7 +57,6 @@ local function make_command(prompt, args)
   end
 
   table.insert(command, prompt)
-
   return command
 end
 
