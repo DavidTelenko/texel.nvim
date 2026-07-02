@@ -71,7 +71,14 @@ M.ask.plain = function(prompt, args, opts)
   local local_opts = opts and vim.tbl_extend('force', config.chat, opts)
     or config.chat
 
-  vim.api.nvim_buf_set_lines(0, -1, -1, false, local_opts.separators.first)
+  local buf = opts and opts.buf or vim.api.nvim_get_current_buf()
+
+  --- @param lines string[] Array of lines to use as replacement
+  local set_lines = function(lines)
+    vim.api.nvim_buf_set_lines(buf, -1, -1, false, lines)
+  end
+
+  set_lines(local_opts.separators.first)
 
   if local_opts.notify then
     helpers.notify 'Generating...'
@@ -89,8 +96,8 @@ M.ask.plain = function(prompt, args, opts)
 
       if out.stdout then
         local output = vim.split(out.stdout:sub(2), '\n')
-        vim.api.nvim_buf_set_lines(0, -1, -1, false, output)
-        vim.api.nvim_buf_set_lines(0, -1, -1, false, local_opts.separators.last)
+        set_lines(output)
+        set_lines(local_opts.separators.last)
 
         if local_opts.notify then
           helpers.notify 'Done'

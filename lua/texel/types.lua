@@ -9,6 +9,7 @@
 ---@class texel.ChatOptions
 ---@field separators texel.Separators
 ---@field notify boolean
+---@field buf? number
 
 ---@class texel.TgptOptions
 ---@field code? boolean
