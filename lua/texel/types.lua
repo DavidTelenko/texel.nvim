@@ -6,9 +6,13 @@
 ---@field first string[]
 ---@field last string[]
 
+---@class texel.Signs
+---@field thinking? string[]
+
 ---@class texel.ChatOptions
 ---@field separators texel.Separators
 ---@field notify boolean
+---@field signs? texel.Signs
 ---@field buf? number
 
 ---@class texel.TgptOptions

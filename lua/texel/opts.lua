@@ -8,6 +8,11 @@ local M = {}
 --   end
 -- end
 
+local function setup_highlights()
+  local hl_groups = require('texel.helpers').sign_hl_groups
+  vim.api.nvim_set_hl(0, hl_groups.thinking, { fg = '#b8bb26' })
+end
+
 --- @param opts? texel.Config
 M.setup = function(opts)
   M.opts = {
@@ -17,6 +22,9 @@ M.setup = function(opts)
         last = { '---', '' },
       },
       notify = true,
+      signs = {
+        thinking = { '|', '/', '-', '\\' },
+      },
     },
     tgpt = {
       code = nil,
@@ -35,6 +43,8 @@ M.setup = function(opts)
   if opts then
     M.opts = vim.tbl_deep_extend('force', M.opts, opts)
   end
+
+  setup_highlights()
 end
 
 M.setup()
