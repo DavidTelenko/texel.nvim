@@ -2,11 +2,11 @@
 
 Most simplistic way of interacting with LLM in neovim.
 
-# The idea
+## The idea
 
-This plugin is a simple wrapper around [tgpt](https://github.com/aandrew-me/tgpt) CLI utility. In the most basic sence we achieve interaction with CLI application by using neovim's buffers, this gives us full power of neovim motions alongside full functionality of CLI application.
+This plugin is a simple wrapper around [tgpt](https://github.com/aandrew-me/tgpt) CLI utility. In the most basic sense we achieve interaction with CLI application by using neovim's buffers, this gives us full power of neovim motions alongside full functionality of CLI application.
 
-# Setup (using lazy)
+## Setup (using lazy)
 
 ```lua
 return {
@@ -40,7 +40,7 @@ return {
 }
 ```
 
-# Default options
+## Default options
 
 ```lua
 require('texel').setup {
@@ -67,12 +67,13 @@ require('texel').setup {
 ```
 
 > [!NOTE]
-> Please see tgpt help to understand what tgpt realted options do
+> Please see tgpt help to understand what tgpt related options do
 
 > [!NOTE]
 > If you're confused which type of a flag we're using check your lsp completion, or see [here](./lua/texel/types.lua)
 
-# Future improvements and goals
+## Future improvements and goals
 
-- [ ] Implemenent functioanlity of a tgpt in lua natively.
+- [ ] Implement functionality of the tgpt in lua natively.
 - [ ] Stream results line-wise or word-wise instead of the whole response.
+- [ ] Use Treesitter to stream text to particular node in AST.
