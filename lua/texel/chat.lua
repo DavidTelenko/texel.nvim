@@ -79,6 +79,8 @@ M.ask.plain = function(prompt, args, opts)
   end
 
   set_lines(local_opts.separators.first)
+  local stop_sign =
+    helpers.animate_sign(buf, vim.api.nvim_buf_line_count(buf) - 1, 'thinking')
 
   if local_opts.notify then
     helpers.notify 'Generating...'
@@ -106,6 +108,8 @@ M.ask.plain = function(prompt, args, opts)
           end, 1000)
         end
       end
+
+      stop_sign()
     end)
   )
 end

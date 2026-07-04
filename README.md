@@ -45,11 +45,18 @@ return {
 ```lua
 require('texel').setup {
   chat = {
+    -- Spacers between the "question" and "answer"
     separators = {
       first = { '', '---', '' },
       last = { '---', '' },
     },
     notify = true,
+    -- Sign to display in sign column near the line where output will be
+    -- inserted. One character - static sign, multiple characters - animation,
+    -- `nil` - disable the feature.
+    signs = {
+      thinking = { '|', '/', '-', '\\' },
+    },
   },
   tgpt = {
     code = nil,
